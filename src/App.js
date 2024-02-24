@@ -1,8 +1,7 @@
 //App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './context/ThemeContext'; // Adjust the path as necessary
-import Header from './components/Header'; 
+import { ThemeProvider } from './context/ThemeContext'; // Adjust the path as necessary 
 import Layout from './components/Layout'; // import the Layout component
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
