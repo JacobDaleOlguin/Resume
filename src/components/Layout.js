@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main>{children}</main> {/* This is where your page content will go */}
+      <main>{children}</main>
       <Footer />
     </>
   );

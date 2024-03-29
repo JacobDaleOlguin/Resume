@@ -31,7 +31,7 @@ const Footer = () => {
                 <GitHubIcon sx={{ mr: 1 }} />
                 GitHub
               </Link>
-              <Link href="mailto:your.email@example.com" color="inherit" sx={{ ml: 2 }}>
+              <Link href="mailto:JacobDaleOlguin@gmail.com" color="inherit" sx={{ ml: 2 }}>
                 <EmailIcon sx={{ mr: 1 }} />
                 Email
               </Link>
