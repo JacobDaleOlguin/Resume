@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <title>Jacob Olguin • Software Engineer</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var favicons = [
+                "%PUBLIC_URL%/favicon1.ico",
+                "%PUBLIC_URL%/favicon2.ico",
+                "%PUBLIC_URL%/favicon3.ico",
+                "%PUBLIC_URL%/favicon4.ico",
+                "%PUBLIC_URL%/favicon5.ico",
+                "%PUBLIC_URL%/favicon6.ico",
+                "%PUBLIC_URL%/favicon7.ico",
+                "%PUBLIC_URL%/favicon8.ico",
+                "%PUBLIC_URL%/favicon9.ico",
+                "%PUBLIC_URL%/favicon10.ico",
+            ];
+            var currentFavicon = 0;
+            var increment = true; // Flag to determine whether to increment or decrement the favicon index
+        
+            function changeFavicon() {
+                var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+                link.type = 'image/x-icon';
+                link.rel = 'shortcut icon';
+                link.href = favicons[currentFavicon];
+                document.getElementsByTagName('head')[0].appendChild(link);
+        
+                if (currentFavicon === favicons.length - 1) {
+                    increment = false;               
+                } else if (currentFavicon === 0) {
+                    increment = true;
+                }
+        
+                currentFavicon += increment ? 1 : -1;
+            }
+        
+            setInterval(changeFavicon, 50); // Adjust time as needed for faster or slower transitions
+        });
+    </script>
+</head>
+<body>
+    <noscript>
+        For the best experience on our website, please enable JavaScript in your browser.
+    </noscript>
+    <div id="root"></div> 
+</body>
 </html>

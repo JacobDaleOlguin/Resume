@@ -1,15 +1,18 @@
 // componets/Layout.js
 import React from 'react';
-import Header from './Header'; // import your Header component
-import Footer from './Footer'; // assuming you have a Footer component
+import Header from './Header';
+import Footer from './Footer';
+import { ThemeProvider } from '../context/ThemeContext'; // Adjust the path as necessary
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </>
+    <ThemeProvider>
+      <>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </>
+    </ThemeProvider>
   );
 };
 

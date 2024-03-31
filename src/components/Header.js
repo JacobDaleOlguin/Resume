@@ -42,7 +42,12 @@ function Header() {
     ];
 
     return (
-        <AppBar position="sticky">
+        <AppBar position="sticky" sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.7)", // Adjust the alpha for transparency
+            backdropFilter: "blur(10px)", // Adjust the pixel value to increase/decrease the blur effect
+            // Ensure the text and icons are visible and legible against the blur effect:
+            color: "black", // Change as needed for your design
+        }}>
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     {'>'}Jacob Olguin_
