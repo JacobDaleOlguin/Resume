@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     color: rgb(12, 5, 5); /* Adjust text color based on your banner's design */
+    position: relative;
     body {
         font-family: 'Roboto', sans-serif; 
         font-size: 16px; 
@@ -25,8 +26,15 @@
   
 
   .solid-fill-box {
-    height: 150px; /* Adjust based on your needs */
-    background-color: #f0f0f0; /* Placeholder color, adjust as needed */
-    margin-top: -20px; /* Adjust to ensure seamless transition between sections */
+    height: 150px; 
+    background-color: #806abe; 
+    margin-top: -20px; 
   }
   
+  .banner-text {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px; 
+    display: inline-block; 
+    text-align: center; 
+  }
