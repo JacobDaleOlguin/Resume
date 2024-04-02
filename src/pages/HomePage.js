@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import '../styles/HomePage.css'; 
 
 function HomePage() {
   // Variants for container to stagger children animations
@@ -26,6 +27,8 @@ function HomePage() {
   };
 
   return (
+    <>
+    <div className = "banner">
     <motion.div
       variants={containerVariants}
       initial="hidden"
@@ -50,6 +53,8 @@ function HomePage() {
         <p>As a software developer, I am constantly exploring new technologies and methodologies to enhance my capabilities. My journey has been marked by continuous learning, problem-solving, and a commitment to excellence in every project I undertake.</p>
       </motion.section>
     </motion.div>
+    </div>
+    </>
   );
 }
 

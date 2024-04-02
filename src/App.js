@@ -1,12 +1,12 @@
 //App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './context/ThemeContext'; // Adjust the path as necessary 
-import Layout from './components/Layout'; // import the Layout component
-import HomePage from './components/HomePage';
-import AboutPage from './components/AboutPage';
-import PortfolioPage from './components/PortfolioPage';
-import ContactPage from './components/ContactPage';
+import { ThemeProvider } from './context/ThemeContext';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (

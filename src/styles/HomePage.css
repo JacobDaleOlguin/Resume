@@ -1,0 +1,32 @@
+
+.banner {
+    background-image: url('/public/banner.webp'); /* Adjust the path as necessary */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust based on your preference */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(12, 5, 5); /* Adjust text color based on your banner's design */
+    body {
+        font-family: 'Roboto', sans-serif; 
+        font-size: 16px; 
+        line-height: 1.6;
+        color: #333; 
+        background-color: #000000; 
+        padding: 20px; /* Adds some padding around your text content. */
+      }
+      
+  }
+  
+  .content-container {
+    padding-top: 20px; /* Spacing from the banner to the content */
+  }
+  
+
+  .solid-fill-box {
+    height: 150px; /* Adjust based on your needs */
+    background-color: #f0f0f0; /* Placeholder color, adjust as needed */
+    margin-top: -20px; /* Adjust to ensure seamless transition between sections */
+  }
+  
