@@ -1,5 +1,4 @@
-// context/ThemeContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -20,6 +19,10 @@ const darkTheme = createTheme({
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState('light');
     const muiTheme = theme === 'light' ? lightTheme : darkTheme;
+
+    useEffect(() => {
+      document.body.className = theme; 
+    }, [theme]);
 
     const toggleTheme = () => {
         setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));

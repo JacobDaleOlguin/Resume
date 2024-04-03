@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import '../styles/HomePage.css'; 
+import './HomePage.css';
+import { useTheme } from '../../context/ThemeContext'; 
 
 function HomePage() {
+  // Retrieve the current theme from ThemeContext
+  const { theme } = useTheme();
+
   // Variants for container to stagger children animations
   const containerVariants = {
     hidden: { opacity: 0 },

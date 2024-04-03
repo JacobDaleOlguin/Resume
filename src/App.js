@@ -3,10 +3,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import PortfolioPage from './pages/PortfolioPage';
-import ContactPage from './pages/ContactPage';
+import HomePage from './pages/homepage/HomePage';
+import AboutPage from './pages/aboutpage/AboutPage';
+import PortfolioPage from './pages/portfoliopage/PortfolioPage';
+import ContactPage from './pages/contactpage/ContactPage';
 
 function App() {
   return (

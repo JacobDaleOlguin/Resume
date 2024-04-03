@@ -1,0 +1,67 @@
+
+body {
+  font-family: 'Roboto', sans-serif; 
+  font-size: 16px; 
+  line-height: 1.6; 
+}
+
+/* Light theme styles */
+body.light {
+  --text-color: rgb(12, 5, 5);
+  --background-color: #ffffff;
+  --box-background-color: #f0f0f0;
+  --banner-text-color: #000000; /* Dark text for light theme */
+  --banner-background-color: rgba(255, 255, 255, 0.8); /* Light background for light theme */
+  color: #333; 
+  background-color: #ffffff; 
+}
+
+/* Dark theme styles */
+body.dark {
+  --text-color: #cccccc;
+  --background-color: #333333;
+  --box-background-color: #806abe;
+  --banner-text-color: #ffffff; /* Light text for dark theme */
+  --banner-background-color: rgba(0, 0, 0, 0.8); /* Dark background for dark theme */
+  color: #cccccc;
+  background-color: #333333; 
+}
+
+/* Banner styles, using variables for theming */
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--text-color); /* Use theme variable for text color */
+}
+
+body.light .banner {
+  background-image: url('../../assets/images/banner.webp');
+}
+
+body.dark .banner {
+  background-image: url('../../assets/images/bannernegative.webp'); 
+}
+
+
+
+
+.solid-fill-box {
+  height: 150px;
+  background-color: var(--box-background-color);
+  margin-top: -20px;
+}
+
+
+.banner-text {
+  background-color: var(--banner-background-color);
+  color: var(--banner-text-color);
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+}

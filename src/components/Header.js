@@ -43,7 +43,7 @@ function Header() {
 
     return (
         <AppBar position="sticky" sx={{
-            backgroundColor: "rgba(20, 100, 255, 0.6)", // Adjust the alpha for transparency
+            backgroundColor: "rgba(0, 0, 0, 0.1)", // Adjust the alpha for transparency
             backdropFilter: "blur(10px)", // Adjust the pixel value to increase/decrease the blur effect
             // Ensure the text and icons are visible and legible against the blur effect:
             color: "black", // Change as needed for your design
