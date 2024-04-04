@@ -1,41 +1,71 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import './HomePage.css';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Typewriter from '../../components/Typewriter';
 import Toolbox from '../../components/Toolbox';
 import { useTheme } from '../../context/ThemeContext';
-import '../../App.css';
+import './HomePage.css';
 
 function HomePage() {
   const { theme } = useTheme();
+  const [isHeaderTypingDone, setIsHeaderTypingDone] = useState(false);
+  const [isBodyTypingDone, setIsBodyTypingDone] = useState(false);
 
-  // Adjusted to control the opacity of the images
-  const imageVariants = {
-    visible: { opacity: 1, transition: { duration: 0.7 } },
-    hidden: { opacity: 0, transition: { duration: 0.7 } },
+  const textContainerVariants = {
+    hidden: { y: 0 },
+    visible: { 
+      y: -50, // Adjust based on your design needs
+      transition: { duration: 0.5 }
+    },
+  };
+
+  // Adjust this container to control when the Toolbox appears
+  const toolboxVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { delay: 0.5, when: "beforeChildren", staggerChildren: 0.2 },
+    },
   };
 
   return (
-    <>
-      <div className="banner">
-        {/* Light Theme Image */}
+    <div className="banner">
+      <AnimatePresence>
         <motion.div
-          className="banner-image light"
-          animate={theme === 'light' ? 'visible' : 'hidden'}
-          variants={imageVariants}
+          key={theme}
+          className={`banner-image ${theme}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 2.3 } }}
+          exit={{ opacity: 0, transition: { duration: 0.2 } }}
         />
-        {/* Dark Theme Image */}
-        <motion.div
-          className="banner-image dark"
-          animate={theme === 'dark' ? 'visible' : 'hidden'}
-          variants={imageVariants}
-        />
-        <motion.div className="banner-text" initial="hidden" animate="visible">
-          <motion.h1>Welcome to My Portfolio</motion.h1>
-          <motion.p>Discover my projects, skills, and journey in the world of software development.</motion.p>
-          <Toolbox />
-        </motion.div>
-      </div>
-    </>
+      </AnimatePresence>
+      <motion.div className="banner-text">
+        <h1>
+          <Typewriter
+            text="Welcome to My Portfolio"
+            speed={100}
+            onTypingDone={() => setIsHeaderTypingDone(true)}
+          />
+        </h1>
+        {isHeaderTypingDone && (
+          <Typewriter
+            text="Discover my projects, skills, and journey in the world of software development."
+            speed={50}
+            onTypingDone={() => setIsBodyTypingDone(true)}
+          />
+        )}
+        <AnimatePresence>
+          {isBodyTypingDone && (
+            <motion.div
+              variants={toolboxVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <Toolbox />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </div>
   );
 }
 

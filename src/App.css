@@ -1,12 +1,4 @@
 /* Global Styles */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px; /* Standard font size */
-  line-height: 1.6; /* Standard line height */
-  transition: background-color 0.7s ease, color 0.7s ease; /* Smooth transition for background and text color */
-}
 
 /* Main Layout Adjustments */
 main {
@@ -14,58 +6,4 @@ main {
 }
 
 /* Global Banner Styles */
-.banner {
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  color: var(--text-color); /* Dynamically changes based on theme */
-  transition: background-color 0.7s ease; /* Ensures smooth background color transition */
-}
 
-/* Centered Text Box in Banner */
-.banner-text {
-  background-color: var(--banner-background-color);
-  color: var(--banner-text-color);
-  padding: 20px;
-  border-radius: 10px;
-  display: inline-block;
-  text-align: center;
-  /* Smooth transitions for background and text color */
-  transition: background-color 0.7s ease, color 0.7s ease;
-}
-
-/* Theme Variables */
-:root {
-  --text-color: #333; /* Dark theme text color */
-  --background-color: #ffffff; /* Light theme background */
-  --box-background-color: #f0f0f0; /* Light theme box background */
-  --banner-text-color: #000000; /* Dark theme banner text */
-  --banner-background-color: rgba(255, 255, 255, 0.8); /* Light theme banner background */
-}
-
-[data-theme="dark"] {
-  --text-color: #cccccc; /* Light theme text color */
-  --background-color: #333333; /* Dark theme background */
-  --box-background-color: #242424; /* Dark theme box background */
-  --banner-text-color: #ffffff; /* Light theme banner text */
-  --banner-background-color: rgba(0, 0, 0, 0.8); /* Dark theme banner background */
-   transition: background-color 0.7s ease, color 0.7s ease;
-}
-
-/* MUI AppBar and Icons Theme Transition */
-.MuiAppBar-root {
-  transition: background-color 0.7s ease; /* Smooth transition for AppBar background */
-}
-
-.MuiSvgIcon-root {
-  transition: fill 0.7s ease; /* Smooth transition for icon colors */
-}
-
-/* Footer */
-.MuiBox-root.MuiBox-root {
-  transition: background-color 0.7s ease; /* Smooth transition for Footer background */
-}

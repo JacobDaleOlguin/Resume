@@ -1,6 +1,13 @@
 .banner {
-  position: relative; /* This makes it a stacking context for its children */
-  height: 100vh; /* Adjust based on your design */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--text-color); /* Dynamically changes based on theme */
+  transition: background-color 0.7s ease; /* Ensures smooth background color transition */
 }
 
 .banner-image {
@@ -15,14 +22,35 @@
 }
 
 .banner-text {
-  position: relative; /* Ensure it's positioned in the stacking context */
-  z-index: 2; /* Higher z-index to ensure it's on top of the images */
-  /* Other styles as needed */
+  position: relative; /* Change to relative */
+  width: 65%;
+  margin: auto; /* Use margin auto to center horizontally */
+  font-weight: bold; /* Make the text bolder */
+  text-align: center; /* Center the content inside the text block */
+  z-index: 2;
 }
+
 .banner-image.light {
   background-image: url('../../assets/images/banneralt.webp');
 }
 
 .banner-image.dark {
   background-image: url('../../assets/images/banneraltnegative.webp');
+}
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+  height: 1em; /* Adjust height as needed */
+  background-color: #fff; /* Color of the cursor */
+  animation: blink 0.7s infinite alternate; /* Blink animation */
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

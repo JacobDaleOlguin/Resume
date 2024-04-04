@@ -13,6 +13,22 @@ import { ReactComponent as TypeScriptIcon } from '../assets/icons/typescript-ori
 
 const whileHover = { scale: 1.1 };
 
+// Define animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Stagger the animation of child elements
+    },
+  },
+};
+
+const iconVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const iconStyle = {
   width: '50px',
   height: '50px',
@@ -22,15 +38,15 @@ const iconStyle = {
 const Toolbox = () => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', padding: '20px' }}>
-      <motion.div whileHover={whileHover}><CSS3Icon style={iconStyle} title="CSS3" /></motion.div>
-      <motion.div whileHover={whileHover}><GitIcon style={iconStyle} title="Git" /></motion.div>
-      <motion.div whileHover={whileHover}><HTML5Icon style={iconStyle} title="HTML5" /></motion.div>
-      <motion.div whileHover={whileHover}><JavaScriptIcon style={iconStyle} title="JavaScript" /></motion.div>
-      <motion.div whileHover={whileHover}><MaterialUIIcon style={iconStyle} title="Material-UI" /></motion.div>
-      <motion.div whileHover={whileHover}><MongoDBIcon style={iconStyle} title="MongoDB" /></motion.div>
-      <motion.div whileHover={whileHover}><NodeJSIcon style={iconStyle} title="Node.js" /></motion.div>
-      <motion.div whileHover={whileHover}><ReactIcon style={iconStyle} title="React" /></motion.div>
-      <motion.div whileHover={whileHover}><TypeScriptIcon style={iconStyle} title="TypeScript" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><CSS3Icon style={iconStyle} title="CSS3" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><GitIcon style={iconStyle} title="Git" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><HTML5Icon style={iconStyle} title="HTML5" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><JavaScriptIcon style={iconStyle} title="JavaScript" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><MaterialUIIcon style={iconStyle} title="Material-UI" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><MongoDBIcon style={iconStyle} title="MongoDB" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><NodeJSIcon style={iconStyle} title="Node.js" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><ReactIcon style={iconStyle} title="React" /></motion.div>
+      <motion.div variants={iconVariants} whileHover={whileHover}><TypeScriptIcon style={iconStyle} title="TypeScript" /></motion.div>
     </div>
   );
 };

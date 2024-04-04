@@ -15,7 +15,6 @@ import MenuItem from '@mui/material/MenuItem';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import ThemeToggler from './ThemeToggler';
-import '../App.css';
 
 const menuItems = [
     { name: 'Home', link: '/', icon: <HomeIcon /> },
@@ -30,7 +29,6 @@ function Header() {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
-
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -41,10 +39,9 @@ function Header() {
 
     return (
         <AppBar position="sticky" sx={{
-            backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.5)',
+            backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)',
             backdropFilter: "blur(10px)",
             color: theme.palette.mode === 'dark' ? 'white' : 'black',
-            
         }}>
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
