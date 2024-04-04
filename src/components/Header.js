@@ -1,4 +1,3 @@
-// components/Header.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
@@ -6,25 +5,31 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu'; // Icon for menu
-import Brightness4Icon from '@mui/icons-material/Brightness4'; // For dark mode
-import Brightness7Icon from '@mui/icons-material/Brightness7'; // For light mode
-import HomeIcon from '@mui/icons-material/Home'; // Icon for Home
-import InfoIcon from '@mui/icons-material/Info'; // Icon for About
-import WorkIcon from '@mui/icons-material/Work'; // Icon for Portfolio
-import ContactMailIcon from '@mui/icons-material/ContactMail'; // Icon for Contact
-import { useTheme } from '../context/ThemeContext';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme as useMuiTheme } from '@mui/material/styles';
+import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
+import WorkIcon from '@mui/icons-material/Work';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import ThemeToggler from './ThemeToggler';
+import '../App.css';
+
+const menuItems = [
+    { name: 'Home', link: '/', icon: <HomeIcon /> },
+    { name: 'About', link: '/about', icon: <InfoIcon /> },
+    { name: 'Portfolio', link: '/portfolio', icon: <WorkIcon /> },
+    { name: 'Contact', link: '/contact', icon: <ContactMailIcon /> },
+];
 
 function Header() {
-    const { theme, toggleTheme } = useTheme();
-    const muiTheme = useMuiTheme();
-    const isMobile = useMediaQuery(muiTheme.breakpoints.down('md'));
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -34,19 +39,12 @@ function Header() {
         setAnchorEl(null);
     };
 
-    const menuItems = [
-        { name: 'Home', link: '/', icon: <HomeIcon /> },
-        { name: 'About', link: '/about', icon: <InfoIcon /> },
-        { name: 'Portfolio', link: '/portfolio', icon: <WorkIcon /> },
-        { name: 'Contact', link: '/contact', icon: <ContactMailIcon /> },
-    ];
-
     return (
         <AppBar position="sticky" sx={{
-            backgroundColor: "rgba(0, 0, 0, 0.1)", // Adjust the alpha for transparency
-            backdropFilter: "blur(10px)", // Adjust the pixel value to increase/decrease the blur effect
-            // Ensure the text and icons are visible and legible against the blur effect:
-            color: "black", // Change as needed for your design
+            backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.5)',
+            backdropFilter: "blur(10px)",
+            color: theme.palette.mode === 'dark' ? 'white' : 'black',
+            
         }}>
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -86,22 +84,22 @@ function Header() {
                         </Menu>
                     </>
                 ) : (
-                    menuItems.map((item) => (
-                        <Button
-                            key={item.name}
-                            startIcon={item.icon}
-                            color="inherit"
-                            component={Link}
-                            to={item.link}
-                            sx={{ margin: '0 10px' }} // Adjust spacing as needed
-                        >
-                            {item.name}
-                        </Button>
-                    ))
+                    <div>
+                        {menuItems.map((item) => (
+                            <Button
+                                key={item.name}
+                                startIcon={item.icon}
+                                color="inherit"
+                                component={Link}
+                                to={item.link}
+                                sx={{ margin: '0 10px' }}
+                            >
+                                {item.name}
+                            </Button>
+                        ))}
+                    </div>
                 )}
-                <IconButton color="inherit" onClick={toggleTheme}>
-                    {theme === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
-                </IconButton>
+                <ThemeToggler />
             </Toolbar>
         </AppBar>
     );

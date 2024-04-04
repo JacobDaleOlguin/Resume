@@ -17,11 +17,13 @@ const darkTheme = createTheme({
 });
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('light');
+    // Initial theme is always 'light'
+    const [theme, setTheme] = useState('light'); 
     const muiTheme = theme === 'light' ? lightTheme : darkTheme;
 
     useEffect(() => {
-      document.body.className = theme; 
+      // Apply a class to the body to support theme-specific global styles
+      document.body.className = `theme-transition ${theme}`;
     }, [theme]);
 
     const toggleTheme = () => {

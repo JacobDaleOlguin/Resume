@@ -2,7 +2,8 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import { ThemeProvider } from '../context/ThemeContext'; // Adjust the path as necessary
+import { ThemeProvider } from '../context/ThemeContext';
+import '../App.css';
 
 const Layout = ({ children }) => {
   return (

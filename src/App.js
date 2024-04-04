@@ -9,7 +9,8 @@ import PortfolioPage from './pages/portfoliopage/PortfolioPage';
 import ContactPage from './pages/contactpage/ContactPage';
 
 function App() {
-  return (
+    return (
+    
     <ThemeProvider>
       <Router>
         <Layout>
