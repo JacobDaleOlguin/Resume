@@ -37,20 +37,3 @@
 .banner-image.dark {
   background-image: url('../../assets/images/banneraltnegative.webp');
 }
-
-.cursor {
-  display: inline-block;
-  width: 1px;
-  height: 1em; /* Adjust height as needed */
-  background-color: #fff; /* Color of the cursor */
-  animation: blink 0.7s infinite alternate; /* Blink animation */
-}
-
-@keyframes blink {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
