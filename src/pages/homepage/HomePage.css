@@ -22,11 +22,12 @@
 }
 
 .banner-text {
-  position: relative; /* Change to relative */
-  width: 65%;
-  margin: auto; /* Use margin auto to center horizontally */
-  font-weight: bold; /* Make the text bolder */
-  text-align: center; /* Center the content inside the text block */
+  position: relative;
+  width: 80vw; /* Scale with the viewport */
+  max-width: 500px; /* Maximum width */
+  margin: auto; /* Center horizontally */
+  font-weight: bold; /* Make text bolder */
+  text-align: center; /* Center content */
   z-index: 2;
 }
 

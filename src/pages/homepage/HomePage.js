@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Typewriter from '../../components/Typewriter';
-import Toolbox from '../../components/Toolbox';
 import { useTheme } from '../../context/ThemeContext';
 import './HomePage.css';
 
@@ -9,23 +8,17 @@ function HomePage() {
   const { theme } = useTheme();
   const [isHeaderTypingDone, setIsHeaderTypingDone] = useState(false);
   const [isBodyTypingDone, setIsBodyTypingDone] = useState(false);
+  const [animateText, setAnimateText] = useState(false);
 
-  const textContainerVariants = {
-    hidden: { y: 0 },
-    visible: { 
-      y: -50, // Adjust based on your design needs
-      transition: { duration: 0.5 }
-    },
-  };
-
-  // Adjust this container to control when the Toolbox appears
-  const toolboxVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { delay: 0.5, when: "beforeChildren", staggerChildren: 0.2 },
-    },
-  };
+  // Start the animation after the body typing is done and a pause
+  useEffect(() => {
+    if (isBodyTypingDone) {
+      const timer = setTimeout(() => {
+        setAnimateText(true);
+      }, 1000); // Adjust pause duration on scale and slide animation
+      return () => clearTimeout(timer);
+    }
+  }, [isBodyTypingDone]);
 
   return (
     <div className="banner">
@@ -38,33 +31,38 @@ function HomePage() {
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
         />
       </AnimatePresence>
-      <motion.div className="banner-text">
-        <h1>
-          <Typewriter
-            text="Welcome to My Portfolio"
-            speed={100}
-            onTypingDone={() => setIsHeaderTypingDone(true)}
-          />
-        </h1>
-        {isHeaderTypingDone && (
-          <Typewriter
-            text="Discover my projects, skills, and journey in the world of software development."
-            speed={50}
-            onTypingDone={() => setIsBodyTypingDone(true)}
-          />
+      <AnimatePresence>
+        {animateText ? (
+          <motion.div
+            className="banner-text"
+            initial={{ y: 0, scale: 1 }}
+            animate={{ y: -100, scale: 1.2, transition: { duration: 0.9 } }}
+            exit={{ opacity: 0, transition: { duration: 0.3 } }}
+          >
+            <h1>Welcome to My Portfolio</h1>
+            <p>Discover my projects, skills, and journey in the world of software development.</p>
+          </motion.div>
+        ) : (
+          <div className="banner-text">
+            <h1>
+              <Typewriter
+                text="Welcome to My Portfolio"
+                speed={100}
+                onTypingDone={() => setIsHeaderTypingDone(true)}
+              />
+            </h1>
+            {isHeaderTypingDone && (
+              <p>
+                <Typewriter
+                  text="Discover my projects, skills, and journey in the world of software development."
+                  speed={50}
+                  onTypingDone={() => setIsBodyTypingDone(true)}
+                />
+              </p>
+            )}
+          </div>
         )}
-        <AnimatePresence>
-          {isBodyTypingDone && (
-            <motion.div
-              variants={toolboxVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <Toolbox />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

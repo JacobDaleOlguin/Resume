@@ -13,17 +13,6 @@ import { ReactComponent as TypeScriptIcon } from '../assets/icons/typescript-ori
 
 const whileHover = { scale: 1.1 };
 
-// Define animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2, // Stagger the animation of child elements
-    },
-  },
-};
-
 const iconVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
