@@ -1,24 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Typewriter from '../../components/Typewriter';
 import { useTheme } from '../../context/ThemeContext';
 import './HomePage.css';
 
 function HomePage() {
-  const { theme } = useTheme();
+  const theme = useTheme().theme;
   const [isHeaderTypingDone, setIsHeaderTypingDone] = useState(false);
-  const [isBodyTypingDone, setIsBodyTypingDone] = useState(false);
   const [animateText, setAnimateText] = useState(false);
-
-  // Start the animation after the body typing is done and a pause
-  useEffect(() => {
-    if (isBodyTypingDone) {
-      const timer = setTimeout(() => {
-        setAnimateText(true);
-      }, 1000); // Adjust pause duration on scale and slide animation
-      return () => clearTimeout(timer);
-    }
-  }, [isBodyTypingDone]);
 
   return (
     <div className="banner">
@@ -56,7 +45,7 @@ function HomePage() {
                 <Typewriter
                   text="Discover my projects, skills, and journey in the world of software development."
                   speed={50}
-                  onTypingDone={() => setIsBodyTypingDone(true)}
+                  onTypingDone={() => setAnimateText(true)}
                 />
               </p>
             )}
@@ -66,5 +55,4 @@ function HomePage() {
     </div>
   );
 }
-
 export default HomePage;

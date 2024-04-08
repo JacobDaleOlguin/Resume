@@ -15,8 +15,9 @@ const whileHover = { scale: 1.1 };
 
 const iconVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+  visible: { opacity: 1, y: 0, transition: { delay: 0.2 }}
+}; 
+
 
 const iconStyle = {
   width: '50px',
