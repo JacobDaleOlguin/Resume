@@ -1,4 +1,5 @@
 import React from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import './PortfolioPage.css';
@@ -18,8 +19,13 @@ function PortfolioPage() {
         />
       </AnimatePresence>
       <div className="portfolio-banner-text">
-        <h1>My name is Jacob.</h1>
-        <h3>I am a Frontend developer and primarily work with React and Typescript.</h3>
+        <h1>Here are some projects I've worked on.</h1>
+        <h3>For a better look at what I can do, check out my </h3>
+        {/* Use an <a> tag for external links */}
+        <a href="https://github.com/JacobDaleOlguin" className="github-link">
+          <GitHubIcon/>
+          GitHub
+        </a>
       </div>
     </div>
   );
