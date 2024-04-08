@@ -1,25 +1,28 @@
-// componets/Portfolio.js
-import React, { useState } from 'react';
-
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '../../context/ThemeContext';
+import './PortfolioPage.css';
 
 function PortfolioPage() {
-    const [showMore, setShowMore] = useState(false);
+  const { theme } = useTheme();
 
-    return (
-        <div>
-          <h1>My Portfolio</h1>
-          <h3>Welcome to the Portfolio Page!</h3>
-          <Typography variant="body1" component="p">
-            Here are some different small tools and applications I have created. If you have any questions,
-            feel free to <Link href="/contact" className="customLink">contact me</Link>!
-          </Typography> 
-          <button onClick={() => setShowMore(!showMore)}>
-            {showMore ? 'Show Less' : 'Show '}
-          </button>
-          {showMore && <Typography variant="body2">This is the additional information that was hidden before!</Typography>}
-        </div>
-    );
-}      
+  return (
+    <div className="banner">
+      <AnimatePresence>
+        <motion.div
+          key={theme}
+          className={`portfolio-banner-image ${theme}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 2.3 } }}
+          exit={{ opacity: 0, transition: { duration: 0.2 } }}
+        />
+      </AnimatePresence>
+      <div className="portfolio-banner-text">
+        <h1>My name is Jacob.</h1>
+        <h3>I am a Frontend developer and primarily work with React and Typescript.</h3>
+      </div>
+    </div>
+  );
+}
+
 export default PortfolioPage;

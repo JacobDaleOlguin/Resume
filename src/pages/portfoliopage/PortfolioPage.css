@@ -1,0 +1,42 @@
+.banner {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: var(--text-color); /* Dynamically changes based on theme */
+    transition: background-color 0.7s ease; /* Ensures smooth background color transition */
+    z-index: 0;
+  }
+  
+  .portfolio-banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; /* Ensure images are behind the text */
+  }
+  
+  .portfolio-banner-text {
+    position: relative;
+    top: -10vh;
+    width: 80vw; /* Scale with the viewport */
+    max-width: 500px; /* Maximum width */
+    margin: auto; /* Center horizontally */
+    font-weight: bold; /* Make text bolder */
+    text-align: center; /* Center content */
+    z-index: 2;
+  }
+  
+  .portfolio-banner-image.light {
+    background-image: url('../../assets/images/portfoliobanner.webp');
+  }
+  
+  .portfolio-banner-image.dark {
+    background-image: url('../../assets/images/portfoliobannernegative.webp');
+  }

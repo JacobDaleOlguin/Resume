@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
-import './about.css';
+import './AboutPage.css';
 
 function AboutPage() {
   const { theme } = useTheme();
