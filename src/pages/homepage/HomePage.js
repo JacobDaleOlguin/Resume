@@ -24,9 +24,6 @@ function HomePage() {
         {animateText ? (
           <motion.div
             className="banner-text"
-            initial={{ y: 0, scale: 1 }}
-            animate={{ y: -100, scale: 1.2, transition: { duration: 0.9 } }}
-            exit={{ opacity: 0, transition: { duration: 0.3 } }}
           >
             <h1>Welcome to My Portfolio</h1>
             <p>Discover my projects, skills, and journey in the world of software development.</p>

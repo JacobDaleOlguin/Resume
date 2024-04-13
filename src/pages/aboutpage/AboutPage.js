@@ -2,6 +2,8 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import './AboutPage.css';
+import Toolbox from '../../components/Toolbox';
+import { Form } from 'react-router-dom';
 
 function AboutPage() {
   const { theme } = useTheme();
@@ -18,8 +20,9 @@ function AboutPage() {
         />
       </AnimatePresence>
       <div className="about-banner-text">
-        <h1>My name is Jacob.</h1>
-        <h3>I am a Frontend developer and primarily work with React and Typescript.</h3>
+        <h1>Feel free to reach out!</h1>
+        <Form></Form>
+        <Toolbox/>
       </div>
     </div>
   );

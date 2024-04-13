@@ -11,7 +11,7 @@
     z-index: 0;
   }
   
-  .about-banner-image {
+  .contact-banner-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@
     z-index: 1; /* Ensure images are behind the text */
   }
   
-  .about-banner-text {
+  .contact-banner-text {
     position: relative;
     top: -10vh;
     width: 80vw; /* Scale with the viewport */
@@ -33,10 +33,10 @@
     z-index: 2;
   }
   
-  .about-banner-image.light {
-    background-image: url('../../assets/images/aboutbanner.webp');
+  .contact-banner-image.light {
+    background-image: url('../../assets/images/contactbanner.webp');
   }
   
-  .about-banner-image.dark {
-    background-image: url('../../assets/images/aboutbannernegative2.webp');
+  .contact-banner-image.dark {
+    background-image: url('../../assets/images/contactbannernegative.webp');
   }
