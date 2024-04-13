@@ -26,7 +26,7 @@
     position: relative;
     top: -10vh;
     width: 80vw; /* Scale with the viewport */
-    max-width: 500px; /* Maximum width */
+    max-width: 800px; /* Maximum width */
     margin: auto; /* Center horizontally */
     font-weight: 800; /* Make text bolder */
     text-align: center; /* Center content */

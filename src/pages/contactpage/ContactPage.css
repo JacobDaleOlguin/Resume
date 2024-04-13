@@ -1,15 +1,15 @@
 .banner {
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    color: var(--text-color); /* Dynamically changes based on theme */
-    transition: background-color 0.7s ease; /* Ensures smooth background color transition */
-    z-index: 0;
-  }
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--text-color); 
+  transition: background-color 0.7s ease, color 0.7s ease; 
+  z-index: 0;
+}
   
   .contact-banner-image {
     position: absolute;
@@ -23,8 +23,9 @@
   }
   
   .contact-banner-text {
+    margin-top: 50px;
     position: relative;
-    top: -10vh;
+    top: -1vh;
     width: 80vw; /* Scale with the viewport */
     max-width: 500px; /* Maximum width */
     margin: auto; /* Center horizontally */

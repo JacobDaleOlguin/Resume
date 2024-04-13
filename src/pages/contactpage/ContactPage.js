@@ -3,7 +3,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import './ContactPage.css';
-import Toolbox from '../../components/Toolbox';
+import ContactForm from '../../components/ContactForm';
 
 function ContactPage() {
     const { theme } = useTheme();
@@ -20,9 +20,10 @@ function ContactPage() {
           />
         </AnimatePresence>
         <div className="contact-banner-text">
-          <h1>My name is contact.</h1>
-          <h3>I am a Frontend developer and primarily work with</h3>
-          <Toolbox/>
+          <h1>Feel free to reach out!</h1>
+          <div>
+            <ContactForm />
+          </div>
         </div>
       </div>
     );
