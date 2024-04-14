@@ -20,7 +20,7 @@ function AboutPage() {
       </AnimatePresence>
       <div className="about-banner-text">
         <h1>My name is Jacob</h1>
-        <h3>Here are som of the tools I work with</h3>
+        <h3>Here are some of the tools I work with</h3>
         <Toolbox/>
       </div>
     </div>

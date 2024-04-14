@@ -1,7 +1,6 @@
 // componets/Footer.js
 import React from 'react';
 import { Box, Container, Grid, Link, Typography } from '@mui/material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 import { useTheme } from '../context/ThemeContext'; 
@@ -30,10 +29,6 @@ const Footer = () => {
               Connect
             </Typography>
             <Box display="flex" justifyContent="flex-start" alignItems="center">
-              <Link href="https://linkedin.com/in/yourprofile" color="inherit">
-                <LinkedInIcon sx={{ mr: 1 }} />
-                LinkedIn
-              </Link>
               <Link href="https://github.com/JacobDaleOlguin" color="inherit" sx={{ ml: 2 }}>
                 <GitHubIcon sx={{ mr: 1 }} />
                 GitHub
