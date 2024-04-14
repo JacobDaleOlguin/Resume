@@ -58,6 +58,7 @@ const ContactForm = () => {
             borderRadius: '25px',
             boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
             backgroundColor: theme.palette.mode === 'light' ? '#fff' : '#424242',
+            border: theme.palette.mode === 'light' ? '#072b40 solid 2px' : '#573d0a solid 2px',
             opacity: '.85',
         },
         inputField: {

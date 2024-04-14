@@ -24,7 +24,7 @@ function PortfolioPage() {
         <h1>Here are some projects I've worked on.</h1>
         <h3>For a better look at what I can do, check out my </h3>
         {/* Use an <a> tag for external links */}
-        <a href="https://github.com/JacobDaleOlguin" className="github-link">
+        <a target='_blank' rel="noreferrer" href="https://github.com/JacobDaleOlguin" className="github-link">
           <GitHubIcon/>
           GitHub
         </a>

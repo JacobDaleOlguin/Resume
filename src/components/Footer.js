@@ -29,7 +29,7 @@ const Footer = () => {
               Connect
             </Typography>
             <Box display="flex" justifyContent="flex-start" alignItems="center">
-              <Link href="https://github.com/JacobDaleOlguin" color="inherit" sx={{ ml: 2 }}>
+              <Link target='_blank' href="https://github.com/JacobDaleOlguin" color="inherit" sx={{ ml: 2 }}>
                 <GitHubIcon sx={{ mr: 1 }} />
                 GitHub
               </Link>
