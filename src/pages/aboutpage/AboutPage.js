@@ -18,7 +18,11 @@ function AboutPage() {
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
         />
       </AnimatePresence>
-      <div className="about-banner-text">
+      <div 
+        className={`about-banner-text ${theme}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 2.3 } }}
+        exit={{ opacity: 0, transition: { duration: 0.2 } }}>
         <h1>My name is Jacob</h1>
         <h3>Here are some of the tools I work with</h3>
         <Toolbox/>
