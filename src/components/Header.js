@@ -45,7 +45,7 @@ function Header() {
         }}>
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    {'>'}Jacob Olguin
+                    {'>'}Jacob Olguin_
                 </Typography>
                 {isMobile ? (
                     <>
