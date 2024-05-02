@@ -20,7 +20,7 @@ function ContactPage() {
           />
         </AnimatePresence>
         <div className="contact-banner-text">
-          <h1>Feel free to reach out!</h1>
+          <h1>Feel free to reach out</h1>
           <div>
             <ContactForm />
           </div>
