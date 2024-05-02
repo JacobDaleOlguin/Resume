@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useTheme } from '@mui/material/styles'; // Import MUI's useTheme
+import { useTheme } from '@mui/material/styles';
+import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
-    const theme = useTheme(); // This now pulls theme settings from MUI
+    const theme = useTheme();
 
-    // State for form keys
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -12,8 +12,8 @@ const ContactForm = () => {
         message: '',
     });
 
-    // State for error handling
     const [errors, setErrors] = useState({});
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);  // New state to control form visibility
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -41,8 +41,18 @@ const ContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
-            console.log('FormData:', formData);
-            alert('Form is valid and submitted, check the console for data.');
+            emailjs.sendForm(
+                process.env.REACT_APP_EMAILJS_SERVICE_ID,
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+                e.target,
+                process.env.REACT_APP_EMAILJS_USER_ID
+            )
+            .then((result) => {
+                console.log(result.text);
+                setIsFormSubmitted(true);  // Update state to hide form
+            }, (error) => {
+                console.log(error.text);
+            });
         }
     };
 
@@ -86,34 +96,37 @@ const ContactForm = () => {
             cursor: 'pointer',
             marginTop: '10px',
         },
-        errorText: {
-            color: 'red',
-            fontSize: '14px',
-        }
     };
 
-    // Form rendering
+    if (isFormSubmitted) {
+        return (
+            <div style={{ ...styles.formContainer, paddingTop: '10px' , marginTop: '100px'}}>
+                Thanks for you reaching out, {formData.name}. I will contact you at {formData.email} soon. You will receive a confirmation email shortly!
+            </div>
+        );
+    }
+
     return (
         <form onSubmit={handleSubmit} style={styles.formContainer}>
             <div style={styles.inputField}>
                 <label style={styles.label}>Name:</label>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} style={styles.input} />
-                {errors.name && <p style={styles.errorText}>{errors.name}</p>}
+                {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
             </div>
             <div style={styles.inputField}>
                 <label style={styles.label}>Email:</label>
                 <input type="email" name="email" value={formData.email} onChange={handleChange} style={styles.input} />
-                {errors.email && <p style={styles.errorText}>{errors.email}</p>}
+                {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
             </div>
             <div style={styles.inputField}>
                 <label style={styles.label}>Company:</label>
                 <input type="text" name="company" value={formData.company} onChange={handleChange} style={styles.input} />
-                {errors.company && <p style={styles.errorText}>{errors.company}</p>}
+                {errors.company && <p style={{ color: 'red' }}>{errors.company}</p>}
             </div>
             <div style={styles.inputField}>
                 <label style={styles.label}>Message:</label>
-                <textarea type="text" name="message" value={formData.message} onChange={handleChange} style={styles.input}></textarea>
-                {errors.message && <p style={styles.errorText}>{errors.message}</p>}
+                <textarea name="message" value={formData.message} onChange={handleChange} style={styles.input}></textarea>
+                {errors.message && <p style={{ color: 'red' }}>{errors.message}</p>}
             </div>
             <button type="submit" style={styles.button}>Submit</button>
         </form>
