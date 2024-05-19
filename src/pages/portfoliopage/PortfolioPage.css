@@ -1,54 +1,107 @@
+/* Base styling for banner and its components */
 .banner {
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    color: var(--text-color); /* Dynamically changes based on theme */
-    transition: background-color 0.7s ease; /* Ensures smooth background color transition */
-    z-index: 0;
-  }
-  
-  .portfolio-banner-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: 1; /* Ensure images are behind the text */
-  }
-  
-  .portfolio-banner-text {
-    position: relative;
-    top: -10vh;
-    width: 80vw; /* Scale with the viewport */
-    max-width: 1000px; /* Maximum width */
-    margin: auto; /* Center horizontally */
-    font-weight: bold; /* Make text bolder */
-    text-align: center; /* Center content */
-    z-index: 2;
-  }
-  
-  .portfolio-banner-text.light {
-    background-color: rgba(255, 255, 255, 0.815);
-    border-radius: 30px;
-    border: solid 2px white;
-    filter: drop-shadow(0 6mm 4mm #6b79c5);
-  }
-  .portfolio-banner-text.dark {
-    background-color: rgba(78, 78, 78, 0.808);
-    border-radius: 30px;
-    border: solid 2px black;
-    filter: drop-shadow(0 6mm 4mm #6b480f);
-  }
-  .portfolio-banner-image.light {
-    background-image: url('../../assets/images/portfoliobanner.webp');
-  }
-  
-  .portfolio-banner-image.dark {
-    background-image: url('../../assets/images/portfoliobannernegative.webp');
-  }
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--text-color);
+  transition: background-color 0.7s ease;
+  z-index: 0;
+}
+
+.portfolio-banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.portfolio-banner-text {
+  position: relative;
+  width: 35%;
+  text-align: center;
+  z-index: 2;
+  padding: 20px 0;
+  border-radius: 30px;
+  border: solid 2px;
+  filter: drop-shadow(0 6mm 4mm);
+}
+
+/* Light and dark theme configurations */
+.light {
+  --background-color: rgba(255, 255, 255, 0.815);
+  --border-color: white;
+  --shadow-color: #6b79c5;
+  --image-url: url('../../assets/images/portfoliobanner.webp');
+}
+
+.dark {
+  --background-color: rgba(78, 78, 78, 0.808);
+  --border-color: black;
+  --shadow-color: #6b480f;
+  --image-url: url('../../assets/images/portfoliobannernegative.webp');
+}
+
+/* Applying theme-specific styles to elements */
+.portfolio-banner-text.light,
+.portfolio-banner-text.dark,
+.demo-site.light,
+.demo-site.dark {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+  filter: drop-shadow(0 6mm 4mm var(--shadow-color));
+}
+
+.portfolio-banner-image.light,
+.portfolio-banner-image.dark {
+  background-image: var(--image-url);
+}
+
+/* Grid layout for demo sections */
+.demo-grid {
+  display: grid;
+  width: 25vw;
+  margin: 0 auto; 
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
+  gap: 20px;
+  padding: 20px;
+  z-index: 3;
+}
+
+.demo-site {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 20px);
+}
+
+.demo-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.demo-content h2, .demo-content p, .demo-content ul {
+  margin: 10px 0;
+}
+
+.demo-content a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
