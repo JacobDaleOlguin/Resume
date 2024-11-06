@@ -10,8 +10,8 @@ function PortfolioPage() {
   const { theme } = useTheme();
   const demoSites = [
     {
-      title: "Restaurant Demo Site",
-      description: "An overview of Project One.",
+      title: "Restaurant Frontend Showcase",
+      description: "Showcase of Frontend Skills and Technologies",
       image: Sigdang,
       technologies: ["React", "Typescript", "Tailwind", "AWS", "Webpack"],
       link: "https://main.d2gpl2885u134r.amplifyapp.com/"
